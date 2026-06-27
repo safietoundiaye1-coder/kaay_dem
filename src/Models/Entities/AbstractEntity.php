@@ -1,0 +1,23 @@
+<?php
+
+namespace KaayDem\Models\Entities;
+
+use KaayDem\Traits\Timestampable;
+
+abstract class AbstractEntity
+{
+    use Timestampable;
+    
+    protected ?int $id = null;
+    
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+}
