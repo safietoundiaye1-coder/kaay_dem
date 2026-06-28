@@ -2,18 +2,19 @@
 
 namespace KaayDem\Models\Enums;
 
-enum TripStatus: string
+class TripStatus
 {
-    case ACTIVE = 'active';
-    case COMPLETED = 'completed';
-    case CANCELLED = 'cancelled';
+    const ACTIVE = 'active';
+    const COMPLETED = 'completed';
+    const CANCELLED = 'cancelled';
     
-    public function label(): string
+    public static function label($status): string
     {
-        return match($this) {
+        return match($status) {
             self::ACTIVE => 'Actif',
             self::COMPLETED => 'Terminé',
             self::CANCELLED => 'Annulé',
+            default => 'inconnu'
         };
     }
 }

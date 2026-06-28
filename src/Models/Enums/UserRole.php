@@ -2,20 +2,21 @@
 
 namespace KaayDem\Models\Enums;
 
-enum UserRole: string
+class UserRole
 {
-    case ADMIN = 'admin';
-    case DRIVER = 'driver';
-    case PASSENGER = 'passenger';
-    case BOTH = 'both';
+    const ADMIN = 'admin';
+    const DRIVER = 'driver';
+    const PASSENGER = 'passenger';
+    const BOTH = 'both';
     
-    public function label(): string
+    public static function label($role): string
     {
-        return match($this) {
+        return match($role) {
             self::ADMIN => 'Administrateur',
             self::DRIVER => 'Conducteur',
             self::PASSENGER => 'Passager',
             self::BOTH => 'Conducteur et Passager',
+            default =>'inconnu'
         };
     }
     

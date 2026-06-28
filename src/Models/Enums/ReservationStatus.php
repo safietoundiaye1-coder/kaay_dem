@@ -2,20 +2,21 @@
 
 namespace KaayDem\Models\Enums;
 
-enum ReservationStatus: string
+class ReservationStatus
 {
-    case PENDING = 'pending';
-    case CONFIRMED = 'confirmed';
-    case COMPLETED = 'completed';
-    case CANCELLED = 'cancelled';
+    const PENDING = 'pending';
+    const CONFIRMED = 'confirmed';
+    const COMPLETED = 'completed';
+    const CANCELLED = 'cancelled';
     
-    public function label(): string
+    public static function label($status): string
     {
-        return match($this) {
+        return match($status) {
             self::PENDING => 'En attente',
             self::CONFIRMED => 'Confirmée',
             self::COMPLETED => 'Terminée',
             self::CANCELLED => 'Annulée',
+            default=>'inconnu'
         };
     }
     
