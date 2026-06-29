@@ -5,7 +5,7 @@ namespace KaayDem\Models\Interfaces;
 interface EvaluableInterface
 {
     public function getAverageRating(): float;
-    public function getTotalRatings(): int;
-    public function addRating(object $rating): void;
+    public function getTotalRatinf(): int;
+    public function addRatings(): void;
     public function getRatingDistribution(): array;
 }
